@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @PostMapping
-    public ResponseEntity<User> createUsers(@RequestBody String body) {
+    public ResponseEntity<User> createUsers(@RequestBody CreateUserDto createUserDto) {
         //
         return null:
     }
