@@ -32,11 +32,11 @@ public class User {
     public User() {
     }
 
-    public User(UUID userID, String username, String email, String passaword, Instant creationTimestamp, Instant updateTimestamp) {
+    public User(UUID userID, String username, String email, String password, Instant creationTimestamp, Instant updateTimestamp) {
         this.userID = userID;
         this.username = username;
         this.email = email;
-        this.password = passaword;
+        this.password = password;
         this.creationTimestamp = creationTimestamp;
         this.updateTimestamp = updateTimestamp;
     }
@@ -65,12 +65,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPassaword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassaword(String passaword) {
-        this.password = passaword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Instant getCreationTimestamp() {

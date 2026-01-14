@@ -1,21 +1,30 @@
 package com.lucas.agregadorinvestimentos.controller;
 
 import com.lucas.agregadorinvestimentos.entity.User;
+import com.lucas.agregadorinvestimentos.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/v1/users")
 public class UserController {
 
-    @PostMapping
-    public ResponseEntity<User> createUsers(@RequestBody CreateUserDto createUserDto) {
-        //
-        return null;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
-    @GetMapping("/{UserId}")
-    public ResponseEntity<User> GetUserById(@PathVariable("userId") String userId) {
+    @PostMapping
+    public ResponseEntity<User> createUsers(@RequestBody CreateUserDto createUserDto) {
+        var userId = userService.createUser((createUserDto));
+        return ResponseEntity.created(URI.create("/v1/users/" + userId.toString())).build();
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable("userId") String userId) {
         //
         return null;
     }
