@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.URI;
 import java.time.Instant;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -36,5 +37,10 @@ public class UserService {
 
         return userSaved.getUserID();
 
+    }
+
+    public Optional<User> getUserById(String userId) {
+
+        return userRepository.findById(UUID.fromString(userId));
     }
 }
